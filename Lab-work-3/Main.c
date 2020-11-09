@@ -22,7 +22,7 @@ int main() {
 		printf("%d ", mass[i]);
 	}
 	
-	zeroOut((int**)mass, 3); //(int**)
+	zeroOut(mass, 3); //(int**)
 	printf("\n");
 	for (int i = 0; i < len; i++)
 	{
@@ -38,8 +38,8 @@ int main() {
 }
 
 
-void zeroOut(void** mass, int element) {  //по идее если написать элемент больший, чем длина массива, ничего не будет, если память в хипе далее ничем не забита
-	printf("\n size: %d", sizeof(mass));
+void zeroOut(int* mass, int element) {  //по идее если написать элемент больший, чем длина массива, ничего не будет, если память в хипе далее ничем не забита
+	//printf("\n size: %d", sizeof(mass));
 	(mass[element]) = 0; // приведение для с++ (int**)
 
 }

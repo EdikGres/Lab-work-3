@@ -342,3 +342,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Test-Lab-3/packages.config
+/Test-Lab-3/pch.cpp
+/Test-Lab-3/pch.h

@@ -23,7 +23,7 @@
 			printf("%d ", mass[i]);
 		}
 
-		//zeroOut(mass, 2); //включение пробы
+		//zeroOut(mass, 2); //РІРєР»СЋС‡РµРЅРёРµ РїСЂРѕР±С‹
 		
 		printf("\n");
 		for (int i = 0; i < len; i++)

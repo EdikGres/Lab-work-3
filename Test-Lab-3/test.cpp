@@ -3,59 +3,53 @@
 
 
 using namespace mywork;
-	TEST(ZeroOutFunc, IntegerMassTest) {
-		int mass[] = { 4, 6, 1, 54, 1, 4, 1 };
-		zeroOut((int*)mass, 3);
 
-		EXPECT_EQ(mass[3], 0); //главный тестик на обнуление
+TEST(ZeroOutInteger, zeroFirstElement) {
+	int mass[] = { 135, 23466, 23, 1515, 535 };
+	int copy[] = { 23466, 23, 1515, 535, 0 };
 
-		EXPECT_EQ(mass[0], 4); //проверка остальных элементов, затронуты ли они
-		EXPECT_EQ(mass[1], 6);
-		EXPECT_EQ(mass[2], 1);
-		EXPECT_EQ(mass[4], 1);
-		
-
-
-
+	zeroOut2(mass, 5, 0); // 1 element zeroOut
+	int i = 0;
+	while (i < 5)
+	{
+		EXPECT_EQ(mass[i], copy[i]);
+		i++;
 	}
-	/* TEST(ZeroOutFunc, FloatMassTest) {
-		float mass[] = { 3.4, 65.12, 13.334, 14.8, 96.567 };
-		zeroOut((float*)mass, 4);
-		
-		EXPECT_EQ(mass[4], 0); //главный тестик на обнуление
 
-		EXPECT_EQ(mass[0], 3.4); //проверка остальных элементов, затронуты ли они
-		EXPECT_EQ(mass[1], 65.12);
-		EXPECT_EQ(mass[2], 13.334);
-		EXPECT_EQ(mass[3], 14.8);
-	} */
 
-	TEST(ZeroOut2Func, IntegerMassTest) {
-		int mass[] = { 4, 6, 1, 54, 1, 4, 1 };
 
-		zeroOut2(mass, 3);
 
-		EXPECT_EQ(mass[3], 0); //главный тестик на обнуление
 
-		EXPECT_EQ(mass[0], 4); //проверка остальных элементов, затронуты ли они
-		EXPECT_EQ(mass[1], 6);
-		EXPECT_EQ(mass[2], 1);
-		EXPECT_EQ(mass[4], 1);
+}
+
+TEST(ZeroOutInteger, zeroElement) {
+
+	int mass[] = { 135, 23466, 23, 1515, 535 };
+	int copy[] = { 135, 23466, 1515, 535, 0 };
+
+	zeroOut2(mass, 5, 2); //2 element zeroOut
+	int i = 0;
+	while (i < 5)
+	{
+		EXPECT_EQ(mass[i], copy[i]);
+		i++;
 	}
-	/*TEST(ZeroOut2TestFunc, FloatMassTest) {
-		float mass[] = { 3.4, 65.12, 13.334, 14.8, 96.567 };
+}
 
-		zeroOut2(mass, 3);
+TEST(ZeroOutInteger, zeroLastElement) {
+	int mass[] = { 135, 23466, 23, 1515, 535 };
+	int copy[] = { 135, 23466, 23, 1515, 0 };
 
-		EXPECT_EQ(mass[4], 0); //главный тестик на обнуление
-
-		EXPECT_EQ(mass[0], 3.4); //проверка остальных элементов, затронуты ли они
-		EXPECT_EQ(mass[1], 65.12);
-		EXPECT_EQ(mass[2], 13.334);
-		EXPECT_EQ(mass[3], 14.8);
-		SUCCEED();
+	zeroOut2(mass, 5, 4); //4 element zeroOut
+	int i = 0;
+	while (i < 5)
+	{
+		EXPECT_EQ(mass[i], copy[i]);
+		i++;
 	}
-	*/
+
+
+}
 
 
 

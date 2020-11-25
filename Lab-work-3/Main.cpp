@@ -11,33 +11,41 @@ int main() {
 	using namespace mywork;
 	int len = 0;
 
-	len = get_unsig_int("input mass lenght: ");
-	int* mass = (int*)malloc(len * sizeof(int)); //(int*)
+	len = get_unsig_int("input mass lenght: "); //ввод длины массива 
+	while (len <= 0) //Защита от нулевого массива 
+	{
+		printf("Incorrect mass size. Try again.\n ");
+		len = get_unsig_int("input mass lenght: ");
+	}
 
-	for (int i = 0; i < len; i++)
+	int* mass = (int*)malloc(len * sizeof(int)); //(int*) выделение памяти под массив
+
+	for (int i = 0; i < len; i++) //заполнение массива элементами
 	{
 		printf("input element[%d] = ", i);
 		mass[i] = get_integer("");
 	}
-	for (int i = 0; i < len; i++)
+	for (int i = 0; i < len; i++) // вывод элементов
 	{
 		printf("%d ", mass[i]);
 	}
 
 	int el = 0;
-	el = get_unsig_int("\nelement to zero: ");
-	while (el >= len)
+	el = get_unsig_int("\n\nelement to zero: "); //ввод элемента для обнуления
+	while (el >= len) //проверка на то что элемент не больше длины массива
 	{
 		printf("exceeded the length of the array.\n");
 		el = get_unsig_int("element to zero: ");
 	}
+
+
 	zeroOut2(mass, len, el); // тест безопасной функции
 
 
 	//zeroOut(mass, 2); //включение пробы
 
-	printf("\n");
-	for (int i = 0; i < len; i++)
+	printf("\nResult:\n");
+	for (int i = 0; i < len; i++) //вывод результата.
 	{
 		printf("%d ", mass[i]);
 	}
@@ -50,7 +58,7 @@ int get_unsig_int(const char* msg) {
 
 	int a = get_integer(msg);
 
-	while (a < 0)
+	while (a < 0) //сделал чтобы не делали нулевой массив
 	{
 		printf("Incorrect input. Need need more than 0\n");
 		a = get_integer(msg);

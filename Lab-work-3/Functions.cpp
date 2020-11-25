@@ -8,24 +8,24 @@ namespace mywork {
 	}
 
 	int zeroOut2(int* mass, int len, int element) {  //безопасный вариант функции
-		if (element >= len || element < 0)
+		if (element >= len || element < 0) //проверка на то, что элемент не выходит за границы и не меньше нуля
 		{
 			return 0;
 		}
 
-		int* temp = (int*)malloc(sizeof(int) * len);
+		int* temp = (int*)malloc(sizeof(int) * len); // выделение памяти для временного массива
 
-		for (int i = 0, j = 0; i < len; i++, j++)
+		for (int i = 0, j = 0; i < len; i++, j++) //цикл который заполняет временный массив без нужного нам элемента(который удалён)
 		{
-			temp[i] = (j == element) ? mass[++j] : mass[j];
+			temp[i] = (j == element) ? mass[++j] : mass[j]; // решил сжать решение в тернарный оператор для красоты
 		}
-		temp[len - 1] = 0;
+		temp[len - 1] = 0; //обнуление последнего элемента
 		
-		for (int i = 0; i < len; i++)
+		for (int i = 0; i < len; i++) //присвоение основному массиву, с которым работали значения temp массива
 		{
 			mass[i] = temp[i];
 		}
-		free(temp);
+		free(temp);  //освобождение памяти для temp массива.
 
 
 		return 1;
